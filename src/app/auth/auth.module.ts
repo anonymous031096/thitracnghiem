@@ -8,9 +8,28 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+
+const antdModule = [
+  NzInputModule,
+  NzButtonModule,
+  NzCheckboxModule,
+  NzFormModule,
+  NzIconModule,
+  NzGridModule,
+  NzAlertModule,
+];
 
 @NgModule({
-  declarations: [LoginComponent],
-  imports: [CommonModule, AuthRoutingModule, NzInputModule, NzButtonModule, NzCheckboxModule, NzFormModule, NzIconModule, NzGridModule],
+  declarations: [LoginComponent, RegisterComponent],
+  imports: [
+    CommonModule,
+    ...antdModule,
+    AuthRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class AuthModule {}

@@ -11,8 +11,16 @@ export class AuthApi extends HttpAbstract {
     super(httpClient);
   }
 
-  signin(username: string, password: string): Observable<any> {
-    return this.post(`${this.prefixUrl}/signin`, { username, password });
+  signin(
+    username: string,
+    password: string,
+    remember: boolean
+  ): Observable<any> {
+    return this.post(`${this.prefixUrl}/signin`, {
+      username,
+      password,
+      remember,
+    });
   }
 
   signup(email: string, username: string, password: string): Observable<any> {
